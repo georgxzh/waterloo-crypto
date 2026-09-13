@@ -65,33 +65,31 @@
     </section>
 
     <section class="research" id="research" aria-labelledby="research-title">
-      <div class="research-heading reveal"><span class="eyebrow">04 / University of Waterloo</span><h2 id="research-title">Research</h2></div>
-      <div class="paper-list">
-        <article class="paper reveal">
-          <a class="professor" href="https://www.math.uwaterloo.ca/~dstebila/" target="_blank" rel="noreferrer">Douglas Stebila</a>
-          <a class="paper-title" href="https://www.math.uwaterloo.ca/~dstebila/" target="_blank" rel="noreferrer">Post-quantum traditional (PQ/T) hybrid key agreement mechanisms for TLS 1.3</a>
-          <span class="year">2026 ↗</span>
-        </article>
-        <article class="paper reveal">
-          <a class="professor" href="https://cs.uwaterloo.ca/~fkerschb/" target="_blank" rel="noreferrer">Florian Kerschbaum</a>
-          <a class="paper-title" href="https://crysp.uwaterloo.ca/publications/" target="_blank" rel="noreferrer">PEPSI: Practically Efficient Private Set Intersection in the Unbalanced Setting</a>
-          <span class="year">2024 ↗</span>
-        </article>
-        <article class="paper reveal">
-          <a class="professor" href="https://cs.uwaterloo.ca/~iang/" target="_blank" rel="noreferrer">Ian Goldberg</a>
-          <a class="paper-title" href="https://cs.uwaterloo.ca/~Iang/pubs.html" target="_blank" rel="noreferrer">Arctic: Lightweight and Stateless Threshold Schnorr Signatures</a>
-          <span class="year">2025 ↗</span>
-        </article>
-        <article class="paper reveal">
-          <a class="professor" href="https://cacr.uwaterloo.ca/people/faculty/menezes.html" target="_blank" rel="noreferrer">Alfred Menezes</a>
-          <a class="paper-title" href="https://www.math.uwaterloo.ca/~ajmeneze/publications/cryptocash.pdf" target="_blank" rel="noreferrer">Cryptocash, Cryptocurrencies, and Cryptocontracts</a>
-          <span class="year">2016 ↗</span>
-        </article>
+      <div class="research-heading reveal">
+        <span class="eyebrow">04 / University of Waterloo</span>
+        <h2 id="research-title">Research</h2>
+        <div class="uw-badge">
+          <img class="uw-seal" src="uw-seal.svg" alt="University of Waterloo seal" width="250" height="250">
+          <span>University of Waterloo<br>Cheriton School of Computer Science</span>
+        </div>
       </div>
+
+      <div class="research-intro reveal">
+        <p class="research-lede">Curated work from Waterloo faculty on cryptography, privacy, blockchain, consensus and decentralized systems. Open a track to see every paper.</p>
+        <p class="research-faculty" id="researchFaculty"></p>
+        <div class="research-stats" id="researchStats"></div>
+      </div>
+
+      <div class="reveal" id="researchFeatured"></div>
+
+      <div class="rs-list" id="researchIndex"></div>
+
+      <a class="research-all" href="research.html">All research <span aria-hidden="true">→</span></a>
     </section>
   </main>
 
   <footer><a href="#top">Waterloo Crypto</a><span>2026</span></footer>
+  <script src="research.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
