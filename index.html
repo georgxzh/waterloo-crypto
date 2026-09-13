@@ -4,297 +4,93 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Waterloo Crypto</title>
-  <meta name="description" content="Waterloo Crypto is the crypto society at the University of Waterloo. It has three parts: Onchain (social), Consensus (research) and DeAI (blockchain × AI).">
-  <meta name="theme-color" content="#000000">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Waterloo cryptography, onchain systems, consensus, and decentralized AI research.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <div class="grain" aria-hidden="true"></div>
-  <div class="progress" aria-hidden="true"><span id="progress"></span></div>
-
-  <!-- ============ NAV ============ -->
-  <header class="nav" id="nav">
-    <a href="#top" class="brand" aria-label="Waterloo Crypto home">
-      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
-        <defs><clipPath id="navLinkClip"><circle cx="16" cy="12" r="4.2"/></clipPath></defs>
-        <g transform="rotate(-45 16 16)" fill="none" stroke-width="2.2">
-          <rect x="2" y="11" width="16" height="10" rx="5" stroke="currentColor"/>
-          <rect x="14" y="11" width="16" height="10" rx="5" stroke="#000" stroke-width="5"/>
-          <rect x="14" y="11" width="16" height="10" rx="5" stroke="#f2c230"/>
-          <g clip-path="url(#navLinkClip)">
-            <rect x="2" y="11" width="16" height="10" rx="5" stroke="#000" stroke-width="5"/>
-            <rect x="2" y="11" width="16" height="10" rx="5" stroke="currentColor"/>
-          </g>
-        </g>
-      </svg>
-      <span class="brand-word">Waterloo <b>Crypto</b></span>
+  <header class="site-header">
+    <a class="brand-lockup" href="#top" aria-label="Waterloo Crypto home">
+      <img src="logo-chain.png" alt="">
+      <span>Waterloo Crypto</span>
     </a>
-
-    <nav class="nav-links" aria-label="Sections">
-      <a href="#onchain" data-nav="onchain"><span class="mono">01</span>Onchain</a>
-      <a href="#consensus" data-nav="consensus"><span class="mono">02</span>Consensus</a>
-      <a href="#deai" data-nav="deai"><span class="mono">03</span>DeAI</a>
+    <nav aria-label="Primary navigation">
+      <a href="#onchain">Onchain</a>
+      <a href="#consensus">Consensus</a>
+      <a href="#deai">DeAI</a>
+      <a href="#research">Research</a>
     </nav>
-
-    <a href="#join" class="btn btn-ghost btn-sm nav-join"><span>Join</span></a>
   </header>
 
-  <!-- side rail: where am I? -->
-  <nav class="rail" aria-label="Page sections">
-    <a href="#top" data-nav="top"><span>Home</span></a>
-    <a href="#onchain" data-nav="onchain"><span>01 Onchain</span></a>
-    <a href="#consensus" data-nav="consensus"><span>02 Consensus</span></a>
-    <a href="#deai" data-nav="deai"><span>03 DeAI</span></a>
-    <a href="#join" data-nav="join"><span>Join</span></a>
-  </nav>
-
-  <main>
-
-    <!-- ============ HERO ============ -->
-    <section class="hero" id="top">
-      <canvas id="globe" class="hero-canvas" aria-hidden="true"></canvas>
-      <div class="hero-vignette" aria-hidden="true"></div>
-
-      <div class="wrap hero-inner">
-        <div class="hero-eyebrow mono">University of Waterloo <span class="gold">·</span> Crypto Society</div>
-        <h1 class="hero-title">
-          <span class="line"><span class="word" data-scramble>Waterloo</span></span>
-          <span class="line"><span class="word" data-scramble>Crypto</span><span class="cursor-block" aria-hidden="true"></span></span>
-        </h1>
-        <p class="hero-sub">One society with three parts. Everything we make ends up <em>onchain</em>.</p>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-art" aria-hidden="true">
+        <img src="hero-chain-hand.png" alt="" fetchpriority="high">
       </div>
+      <h1 id="hero-title"><span>Waterloo</span><span>Crypto</span></h1>
+      <a class="scroll-cue" href="#onchain" aria-label="Scroll to Onchain">↓</a>
+    </section>
 
-      <div class="hero-sections">
-        <div class="wrap hs-grid">
-          <a href="#onchain" class="hs"><span class="mono">01</span><b>Onchain</b><span class="hs-sub">Social: events, mixers, hackathons</span><i>→</i></a>
-          <a href="#consensus" class="hs"><span class="mono">02</span><b>Consensus</b><span class="hs-sub">Research: workshops, podcast, papers</span><i>→</i></a>
-          <a href="#deai" class="hs"><span class="mono">03</span><b>DeAI</b><span class="hs-sub">Blockchain × AI: compute, inference</span><i>→</i></a>
-        </div>
+    <div class="index" aria-label="Areas">
+      <a href="#onchain"><span>01</span>Onchain</a>
+      <a href="#consensus"><span>02</span>Consensus</a>
+      <a href="#deai"><span>03</span>DeAI</a>
+    </div>
+
+    <section class="chapter" id="onchain">
+      <div class="chapter-title reveal"><span class="number">01</span><h2>Onchain</h2></div>
+      <div class="chain-visual" aria-hidden="true">
+        <div class="chain-line"></div>
+        <span></span><span></span><span></span><span></span><span></span>
       </div>
     </section>
 
-    <!-- ============ 01 ONCHAIN ============ -->
-    <section class="section" id="onchain">
-      <div class="wrap">
-        <header class="s-head reveal">
-          <span class="s-num">01</span>
-          <div>
-            <p class="mono s-tag">Social · In person</p>
-            <h2 data-scramble>Waterloo Onchain</h2>
-          </div>
-          <p class="s-lede">Come to our events and meet people. We mint the photos and proof of attendance to everyone who was there.</p>
-        </header>
+    <section class="chapter" id="consensus">
+      <div class="chapter-title reveal"><span class="number">02</span><h2>Consensus</h2></div>
+      <div class="consensus-visual" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </section>
 
-        <div class="split">
-          <div class="stage reveal">
-            <canvas id="network" aria-hidden="true"></canvas>
-            <div class="stage-label mono"><span class="gold">●</span> Live peer graph</div>
-          </div>
-          <ul class="items two">
-            <li class="reveal" style="--d:0"><span class="mono">A</span><h3>Mixers</h3><p>Meet builders, researchers and anyone who's curious about crypto.</p></li>
-            <li class="reveal" style="--d:1"><span class="mono">B</span><h3>Networking</h3><p>Founders, funds and protocol teams, all in one room.</p></li>
-            <li class="reveal" style="--d:2"><span class="mono">C</span><h3>Mentorship</h3><p>1:1s with alumni who have shipped to mainnet.</p></li>
-            <li class="reveal" style="--d:3"><span class="mono">D</span><h3>Hackathons</h3><p>One weekend to go from an idea to a deployed contract.</p></li>
-          </ul>
-        </div>
+    <section class="chapter" id="deai">
+      <div class="chapter-title reveal"><span class="number">03</span><h2>DeAI</h2></div>
+      <div class="deai-grid" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
     </section>
 
-    <!-- ============ 02 CONSENSUS ============ -->
-    <section class="section" id="consensus">
-      <div class="wrap">
-        <header class="s-head reveal">
-          <span class="s-num">02</span>
-          <div>
-            <p class="mono s-tag">Research · Permanent</p>
-            <h2 data-scramble>Waterloo Consensus</h2>
-          </div>
-          <p class="s-lede">Research that lasts. We publish workshops, podcast episodes and papers, and each one is signed by its authors.</p>
-        </header>
-
-        <ul class="items four">
-          <li class="reveal" style="--d:0"><span class="mono">A</span><h3>Workshops</h3><p>From elliptic curves to rollups, recorded and openly licensed.</p></li>
-          <li class="reveal" style="--d:1"><span class="mono">B</span><h3>Podcast</h3><p>Long-form conversations with researchers and founders.</p></li>
-          <li class="reveal" style="--d:2"><span class="mono">C</span><h3>Papers</h3><p>Student research, with authorship soulbound to each author's ENS.</p></li>
-          <li class="reveal" style="--d:3"><span class="mono">D</span><h3>Hall of Fame</h3><p>Every past exec gets a card, minted as an NFT.</p></li>
-        </ul>
-
-        <div class="hof">
-          <div class="sub-head reveal">
-            <h3 class="mono"><span class="gold">▍</span> Hall of Fame</h3>
-            <span class="mono dim">Placeholder cards. The genesis class mints at launch.</span>
-          </div>
-          <div class="cards" id="cards"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 03 DEAI ============ -->
-    <section class="section" id="deai">
-      <div class="wrap">
-        <header class="s-head reveal">
-          <span class="s-num">03</span>
-          <div>
-            <p class="mono s-tag">Blockchain × AI</p>
-            <h2 data-scramble>Waterloo DeAI</h2>
-          </div>
-          <p class="s-lede">AI that no single company controls. We study GPU networks, provable inference and agents that have their own wallets.</p>
-        </header>
-      </div>
-
-      <div class="gpu-stage reveal" id="gpuStage">
-        <div class="gpu-floor" aria-hidden="true"></div>
-        <svg class="gpu-streams" id="gpuStreams" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
-
-        <div class="gpu-wrap" id="gpuWrap">
-          <div class="gpu-glow" aria-hidden="true"></div>
-          <svg class="gpu" id="gpu" viewBox="0 0 900 400" role="img" aria-label="Animated GPU with spinning fans">
-            <defs>
-              <linearGradient id="gShroud" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#1c1c1c"/><stop offset=".5" stop-color="#0d0d0d"/><stop offset="1" stop-color="#070707"/>
-              </linearGradient>
-              <linearGradient id="gEdge" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0" stop-color="#fff" stop-opacity=".05"/><stop offset=".5" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity=".05"/>
-              </linearGradient>
-              <linearGradient id="gRgb" x1="0" y1="0" x2="1" y2="0" spreadMethod="repeat">
-                <stop offset="0" stop-color="#F2C230" stop-opacity=".05"/>
-                <stop offset=".35" stop-color="#F2C230" stop-opacity=".9"/>
-                <stop offset=".5" stop-color="#fff6d6" stop-opacity="1"/>
-                <stop offset=".65" stop-color="#F2C230" stop-opacity=".9"/>
-                <stop offset="1" stop-color="#F2C230" stop-opacity=".05"/>
-                <animateTransform attributeName="gradientTransform" type="translate" from="-1 0" to="1 0" dur="2.6s" repeatCount="indefinite"/>
-              </linearGradient>
-              <linearGradient id="gBlade" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#fff" stop-opacity=".03"/>
-              </linearGradient>
-              <radialGradient id="gFanWell" cx=".5" cy=".5" r=".5">
-                <stop offset="0" stop-color="#151515"/><stop offset=".75" stop-color="#050505"/><stop offset="1" stop-color="#000"/>
-              </radialGradient>
-              <radialGradient id="gHubGlow" cx=".5" cy=".5" r=".5">
-                <stop offset="0" stop-color="#F2C230" stop-opacity=".35"/><stop offset="1" stop-color="#F2C230" stop-opacity="0"/>
-              </radialGradient>
-              <linearGradient id="gGold" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#f7d875"/><stop offset="1" stop-color="#a47b12"/>
-              </linearGradient>
-              <filter id="fGlow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-              <pattern id="pFins" width="6" height="10" patternUnits="userSpaceOnUse"><rect width="2" height="10" fill="#3a3a3a"/></pattern>
-              <pattern id="pVent" width="10" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="2" rx="1" fill="#000"/></pattern>
-              <clipPath id="cShroud"><path d="M70 52H818l34 30v196l-26 26H70Z"/></clipPath>
-            </defs>
-
-            <g class="cables" fill="none">
-              <path d="M742 34 C742 -10, 800 -20, 900 -40" stroke="#1d1d1d" stroke-width="7"/>
-              <path d="M762 34 C762 0, 820 -8, 910 -18" stroke="#1d1d1d" stroke-width="7"/>
-              <path d="M742 34 C742 -10, 800 -20, 900 -40" class="cable-flow"/>
-              <path d="M762 34 C762 0, 820 -8, 910 -18" class="cable-flow" style="animation-delay:-.7s"/>
-            </g>
-            <rect x="96" y="40" width="700" height="14" fill="url(#pFins)" opacity=".9"/>
-            <rect x="96" y="40" width="700" height="1" fill="#444"/>
-            <rect x="728" y="28" width="48" height="16" rx="2" fill="#0c0c0c" stroke="#444"/>
-            <g fill="#F2C230" opacity=".8">
-              <rect x="733" y="32" width="4" height="3"/><rect x="741" y="32" width="4" height="3"/><rect x="749" y="32" width="4" height="3"/><rect x="757" y="32" width="4" height="3"/><rect x="765" y="32" width="4" height="3"/>
-              <rect x="733" y="37" width="4" height="3"/><rect x="741" y="37" width="4" height="3"/><rect x="749" y="37" width="4" height="3"/><rect x="757" y="37" width="4" height="3"/><rect x="765" y="37" width="4" height="3"/>
-            </g>
-            <path d="M28 30h34v308H28z" fill="#131313" stroke="#3b3b3b"/>
-            <path d="M22 30h46v10H22z" fill="#1a1a1a" stroke="#3b3b3b"/>
-            <rect x="36" y="56" width="18" height="160" fill="url(#pVent)" opacity=".9"/>
-            <g fill="#050505" stroke="#555">
-              <rect x="34" y="232" width="22" height="12" rx="2"/><rect x="34" y="252" width="22" height="12" rx="2"/><rect x="34" y="272" width="22" height="12" rx="2"/><rect x="34" y="292" width="22" height="14" rx="3"/>
-            </g>
-            <rect x="62" y="296" width="800" height="16" fill="#0a0a0a" stroke="#2a2a2a"/>
-            <path d="M90 304h120M230 304h40l8-5h60M600 304h100l6 4h80" stroke="#F2C230" stroke-opacity=".35" stroke-width="1" fill="none"/>
-            <g id="fingers"></g>
-            <path d="M70 52H818l34 30v196l-26 26H70Z" fill="url(#gShroud)" stroke="#3a3a3a" stroke-width="1.2"/>
-            <g clip-path="url(#cShroud)">
-              <path d="M70 52H818" stroke="url(#gEdge)" stroke-width="2"/>
-              <path d="M560 304 640 52M590 304 670 52" stroke="#fff" stroke-opacity=".03" stroke-width="30"/>
-            </g>
-            <rect x="120" y="60" width="660" height="3" rx="1.5" fill="url(#gRgb)" filter="url(#fGlow)"/>
-            <path d="M818 52l34 30" stroke="#F2C230" stroke-width="1.5" opacity=".8"/>
-            <path d="M852 278l-26 26" stroke="#F2C230" stroke-width="1.5" opacity=".8"/>
-            <rect x="852" y="96" width="14" height="170" fill="url(#pFins)" opacity=".7"/>
-            <g id="fans"></g>
-            <text x="92" y="290" class="gpu-text">WATERLOO DeAI · COMPUTE UNIT 01</text>
-            <text x="806" y="290" class="gpu-text" text-anchor="end">TENSOR CORES · 80 GB</text>
-            <g class="leds">
-              <circle cx="812" cy="78" r="2.2" fill="#F2C230"/><circle cx="822" cy="78" r="2.2" fill="#F2C230"/><circle cx="832" cy="78" r="2.2" fill="#fff"/>
-            </g>
-          </svg>
-        </div>
-        <div class="stage-caption mono dim">Hover or tap the GPU to overclock</div>
-      </div>
-
-      <div class="wrap">
-        <ul class="items four">
-          <li class="reveal" style="--d:0"><span class="mono">A</span><h3>Decentralized compute</h3><p>Sending GPU work to idle hardware anywhere in the world.</p></li>
-          <li class="reveal" style="--d:1"><span class="mono">B</span><h3>Verifiable inference</h3><p>zkML: proofs that a model ran exactly as claimed.</p></li>
-          <li class="reveal" style="--d:2"><span class="mono">C</span><h3>Onchain agents</h3><p>AI agents that have their own wallets and ENS names.</p></li>
-          <li class="reveal" style="--d:3"><span class="mono">D</span><h3>Data provenance</h3><p>Datasets that pay the people who contributed to them.</p></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ ONCHAIN-NATIVE BAND ============ -->
-    <section class="section band">
-      <div class="wrap band-inner reveal">
-        <h2 class="band-title">Everything we make is <span class="serif gold">onchain.</span></h2>
-        <p>Photos, videos, exec cards and papers are minted as tokens. Credit is soulbound to each person's ENS, so it stays with you after you graduate.</p>
-        <div class="chips mono">
-          <span>Photos</span><span>Videos</span><span>Exec cards</span><span class="g">Papers · soulbound</span><span class="g">Authors · soulbound</span><span class="g">Attendance · soulbound</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ JOIN ============ -->
-    <section class="section join" id="join">
-      <canvas id="joinCanvas" aria-hidden="true"></canvas>
-      <div class="wrap join-inner reveal">
-        <div class="mono dim">Genesis class · 2026</div>
-        <h2 class="join-title">Claim your <span class="serif gold">block.</span></h2>
-        <p>Come to a mixer, write a paper or run a node.</p>
-        <span class="btn btn-solid is-soon"><span>Discord: link coming soon</span></span>
+    <section class="research" id="research" aria-labelledby="research-title">
+      <div class="research-heading reveal"><span class="eyebrow">04 / University of Waterloo</span><h2 id="research-title">Research</h2></div>
+      <div class="paper-list">
+        <article class="paper reveal">
+          <a class="professor" href="https://www.math.uwaterloo.ca/~dstebila/" target="_blank" rel="noreferrer">Douglas Stebila</a>
+          <a class="paper-title" href="https://www.math.uwaterloo.ca/~dstebila/" target="_blank" rel="noreferrer">Post-quantum traditional (PQ/T) hybrid key agreement mechanisms for TLS 1.3</a>
+          <span class="year">2026 ↗</span>
+        </article>
+        <article class="paper reveal">
+          <a class="professor" href="https://cs.uwaterloo.ca/~fkerschb/" target="_blank" rel="noreferrer">Florian Kerschbaum</a>
+          <a class="paper-title" href="https://crysp.uwaterloo.ca/publications/" target="_blank" rel="noreferrer">PEPSI: Practically Efficient Private Set Intersection in the Unbalanced Setting</a>
+          <span class="year">2024 ↗</span>
+        </article>
+        <article class="paper reveal">
+          <a class="professor" href="https://cs.uwaterloo.ca/~iang/" target="_blank" rel="noreferrer">Ian Goldberg</a>
+          <a class="paper-title" href="https://cs.uwaterloo.ca/~Iang/pubs.html" target="_blank" rel="noreferrer">Arctic: Lightweight and Stateless Threshold Schnorr Signatures</a>
+          <span class="year">2025 ↗</span>
+        </article>
+        <article class="paper reveal">
+          <a class="professor" href="https://cacr.uwaterloo.ca/people/faculty/menezes.html" target="_blank" rel="noreferrer">Alfred Menezes</a>
+          <a class="paper-title" href="https://www.math.uwaterloo.ca/~ajmeneze/publications/cryptocash.pdf" target="_blank" rel="noreferrer">Cryptocash, Cryptocurrencies, and Cryptocontracts</a>
+          <span class="year">2016 ↗</span>
+        </article>
       </div>
     </section>
   </main>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="wrap">
-      <div class="foot-row">
-        <a href="#top" class="brand" aria-label="Back to top">
-          <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
-            <defs><clipPath id="footLinkClip"><circle cx="16" cy="12" r="4.2"/></clipPath></defs>
-        <g transform="rotate(-45 16 16)" fill="none" stroke-width="2.2">
-          <rect x="2" y="11" width="16" height="10" rx="5" stroke="currentColor"/>
-          <rect x="14" y="11" width="16" height="10" rx="5" stroke="#000" stroke-width="5"/>
-          <rect x="14" y="11" width="16" height="10" rx="5" stroke="#f2c230"/>
-          <g clip-path="url(#footLinkClip)">
-            <rect x="2" y="11" width="16" height="10" rx="5" stroke="#000" stroke-width="5"/>
-            <rect x="2" y="11" width="16" height="10" rx="5" stroke="currentColor"/>
-          </g>
-        </g>
-          </svg>
-          <span class="brand-word">Waterloo <b>Crypto</b></span>
-        </a>
-        <nav class="foot-links">
-          <a href="#onchain">01 Onchain</a><a href="#consensus">02 Consensus</a><a href="#deai">03 DeAI</a>
-        </nav>
-      </div>
-      <div class="foot-word" aria-hidden="true">WATERLOO CRYPTO</div>
-      <div class="foot-base mono dim">
-        <span>© <span id="yr">2026</span> Waterloo Crypto</span>
-        <span>v0.2</span>
-      </div>
-    </div>
-  </footer>
-
+  <footer><a href="#top">Waterloo Crypto</a><span>2026</span></footer>
   <script src="main.js"></script>
 </body>
 </html>
