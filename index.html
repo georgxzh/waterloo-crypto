@@ -4,25 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Waterloo Crypto</title>
-  <meta name="description" content="Waterloo Crypto — the cryptographic society of the University of Waterloo. Onchain (social), Consensus (research), DeAI (blockchain × AI). Everything onchain, soulbound to ENS.">
+  <meta name="description" content="Waterloo Crypto is the crypto society at the University of Waterloo. It has three parts: Onchain (social), Consensus (research) and DeAI (blockchain × AI).">
   <meta name="theme-color" content="#000000">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- ============ BOOT ============ -->
-  <div class="boot" id="boot" aria-hidden="true">
-    <div class="boot-inner">
-      <div class="boot-line mono"><span class="gold">&gt;</span> syncing genesis block</div>
-      <div class="boot-hash mono" id="bootHash">0x0000000000000000</div>
-      <div class="boot-bar"><span id="bootBar"></span></div>
-      <div class="boot-pct mono" id="bootPct">000%</div>
-    </div>
-  </div>
 
   <div class="grain" aria-hidden="true"></div>
   <div class="progress" aria-hidden="true"><span id="progress"></span></div>
@@ -31,317 +21,139 @@
   <header class="nav" id="nav">
     <a href="#top" class="brand" aria-label="Waterloo Crypto home">
       <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
-        <path d="M16 2.2 28 9.1v13.8L16 29.8 4 22.9V9.1Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M9.2 11.2 12.6 21 16 14.2 19.4 21l3.4-9.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-        <circle cx="16" cy="2.2" r="1.7" fill="var(--gold)"/>
+        <defs><clipPath id="navLinkClip"><circle cx="16" cy="12" r="4.2"/></clipPath></defs>
+        <g transform="rotate(-45 16 16)" fill="none" stroke-width="2.2">
+          <rect x="2" y="11" width="16" height="10" rx="5" stroke="currentColor"/>
+          <rect x="14" y="11" width="16" height="10" rx="5" stroke="#000" stroke-width="5"/>
+          <rect x="14" y="11" width="16" height="10" rx="5" stroke="#f2c230"/>
+          <g clip-path="url(#navLinkClip)">
+            <rect x="2" y="11" width="16" height="10" rx="5" stroke="#000" stroke-width="5"/>
+            <rect x="2" y="11" width="16" height="10" rx="5" stroke="currentColor"/>
+          </g>
+        </g>
       </svg>
-      <span class="brand-word">Waterloo<b>Crypto</b></span>
+      <span class="brand-word">Waterloo <b>Crypto</b></span>
     </a>
 
-    <nav class="nav-links" id="navLinks" aria-label="Primary">
+    <nav class="nav-links" aria-label="Sections">
       <a href="#onchain" data-nav="onchain"><span class="mono">01</span>Onchain</a>
       <a href="#consensus" data-nav="consensus"><span class="mono">02</span>Consensus</a>
       <a href="#deai" data-nav="deai"><span class="mono">03</span>DeAI</a>
-      <a href="#native" data-nav="native"><span class="mono">04</span>Onchain&nbsp;Native</a>
-      <a href="#roadmap" data-nav="roadmap"><span class="mono">05</span>Roadmap</a>
     </nav>
 
-    <div class="nav-right">
-      <div class="block-ticker mono" title="Ethereum mainnet block height">
-        <span class="pulse-dot"></span>
-        <span class="dim">ETH</span>
-        <span id="blockNum">#——</span>
-      </div>
-      <a href="#join" class="btn btn-ghost btn-sm"><span>Connect .eth</span></a>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
-    </div>
+    <a href="#join" class="btn btn-ghost btn-sm nav-join"><span>Join</span></a>
   </header>
 
-  <main id="top">
+  <!-- side rail: where am I? -->
+  <nav class="rail" aria-label="Page sections">
+    <a href="#top" data-nav="top"><span>Home</span></a>
+    <a href="#onchain" data-nav="onchain"><span>01 Onchain</span></a>
+    <a href="#consensus" data-nav="consensus"><span>02 Consensus</span></a>
+    <a href="#deai" data-nav="deai"><span>03 DeAI</span></a>
+    <a href="#join" data-nav="join"><span>Join</span></a>
+  </nav>
+
+  <main>
 
     <!-- ============ HERO ============ -->
-    <section class="hero" id="hero">
+    <section class="hero" id="top">
       <canvas id="globe" class="hero-canvas" aria-hidden="true"></canvas>
       <div class="hero-vignette" aria-hidden="true"></div>
 
       <div class="wrap hero-inner">
-        <div class="hero-eyebrow mono reveal">
-          <span class="bracket">[</span> University of Waterloo <span class="gold">·</span> Cryptographic Society <span class="bracket">]</span>
-        </div>
-
+        <div class="hero-eyebrow mono">University of Waterloo <span class="gold">·</span> Crypto Society</div>
         <h1 class="hero-title">
           <span class="line"><span class="word" data-scramble>Waterloo</span></span>
           <span class="line"><span class="word" data-scramble>Crypto</span><span class="cursor-block" aria-hidden="true"></span></span>
         </h1>
-
-        <p class="hero-sub reveal">
-          One society, three layers: <em>social</em>, <em>research</em> and <em>machine intelligence</em>.
-          Every photo, paper and member card is minted onchain and soulbound to its owner's ENS.
-        </p>
-
-        <div class="hero-cta reveal">
-          <a href="#layers" class="btn btn-solid"><span>Enter the society</span><i class="arrow">→</i></a>
-          <a href="#native" class="btn btn-ghost"><span>Why onchain</span></a>
-        </div>
+        <p class="hero-sub">One society with three parts. Everything we make ends up <em>onchain</em>.</p>
       </div>
 
-      <div class="hero-foot wrap mono">
-        <div class="hf-cell hide-sm"><span class="dim">LAT/LON</span> 43.4723° N · 80.5449° W</div>
-        <div class="hf-cell show-sm"><span class="dim">UWATERLOO</span></div>
-        <div class="hf-cell"><span class="dim">GENESIS</span> 2026</div>
-        <div class="hf-cell hide-sm"><span class="dim">LAYERS</span> ONCHAIN · CONSENSUS · DEAI</div>
-        <div class="hf-cell scroll-hint"><span class="dim">SCROLL</span><span class="scroll-line"></span></div>
-      </div>
-    </section>
-
-    <!-- ============ MARQUEE ============ -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Soulbound to ENS</span><i>◆</i><span>Peer-reviewed</span><i>◆</i><span>Minted after the fact</span><i>◆</i><span>Verifiable inference</span><i>◆</i><span>Proof of attendance</span><i>◆</i><span>Content-addressed</span><i>◆</i><span>Permissionless compute</span><i>◆</i><span>Built at Waterloo</span><i>◆</i>
-        <span>Soulbound to ENS</span><i>◆</i><span>Peer-reviewed</span><i>◆</i><span>Minted after the fact</span><i>◆</i><span>Verifiable inference</span><i>◆</i><span>Proof of attendance</span><i>◆</i><span>Content-addressed</span><i>◆</i><span>Permissionless compute</span><i>◆</i><span>Built at Waterloo</span><i>◆</i>
-      </div>
-    </div>
-
-    <!-- ============ LAYERS OVERVIEW ============ -->
-    <section class="section layers" id="layers">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="idx mono">[00]</span>
-          <span class="mono dim">ARCHITECTURE</span>
-          <span class="mono dim push">1 SOCIETY / 3 LAYERS / ∞ BLOCKS</span>
-        </div>
-
-        <h2 class="big-statement reveal">
-          One society.<br><span class="serif">Three layers,</span> <span class="dim-text">each with its own</span><br><span class="dim-text">clock speed.</span>
-        </h2>
-
-        <div class="layer-grid">
-          <a href="#onchain" class="layer-card reveal" style="--d:0">
-            <div class="lc-top mono"><span>[01]</span><span class="dim">SOCIAL · TRANSIENT</span></div>
-            <div class="lc-icon">
-              <svg viewBox="0 0 120 80" aria-hidden="true" class="ic-onchain">
-                <circle cx="46" cy="40" r="24"/><circle cx="74" cy="40" r="24"/>
-                <circle class="ic-dot" cx="60" cy="40" r="3"/>
-              </svg>
-            </div>
-            <h3>Waterloo <b>Onchain</b></h3>
-            <p>Mixers, networking, mentorship and hackathons. You have to be in the room for it. We mint the memories afterwards.</p>
-            <div class="lc-foot mono"><span>MIXERS</span><span>MENTORSHIP</span><span>HACKATHONS</span></div>
-            <span class="lc-arrow">↗</span>
-          </a>
-          <a href="#consensus" class="layer-card reveal" style="--d:1">
-            <div class="lc-top mono"><span>[02]</span><span class="dim">RESEARCH · PERMANENT</span></div>
-            <div class="lc-icon">
-              <svg viewBox="0 0 120 80" aria-hidden="true" class="ic-consensus">
-                <path d="M60 12 88 64H32Z"/>
-                <circle cx="60" cy="12" r="5"/><circle cx="88" cy="64" r="5"/><circle cx="32" cy="64" r="5"/>
-                <circle class="ic-dot" cx="60" cy="47" r="3"/>
-              </svg>
-            </div>
-            <h3>Waterloo <b>Consensus</b></h3>
-            <p>Workshops, a podcast, published papers and a hall of fame. Work that should still be useful in ten years.</p>
-            <div class="lc-foot mono"><span>WORKSHOPS</span><span>PODCAST</span><span>PAPERS</span></div>
-            <span class="lc-arrow">↗</span>
-          </a>
-          <a href="#deai" class="layer-card reveal" style="--d:2">
-            <div class="lc-top mono"><span>[03]</span><span class="dim">BLOCKCHAIN × AI</span></div>
-            <div class="lc-icon">
-              <svg viewBox="0 0 120 80" aria-hidden="true" class="ic-deai">
-                <rect x="38" y="18" width="44" height="44" rx="4"/>
-                <rect x="50" y="30" width="20" height="20" rx="2"/>
-                <path d="M46 18v-8M56 18v-8M64 18v-8M74 18v-8M46 62v8M56 62v8M64 62v8M74 62v8M38 26h-8M38 36h-8M38 44h-8M38 54h-8M82 26h8M82 36h8M82 44h8M82 54h8"/>
-                <circle class="ic-dot" cx="60" cy="40" r="3"/>
-              </svg>
-            </div>
-            <h3>Waterloo <b>DeAI</b></h3>
-            <p>Decentralized compute, verifiable inference and agents that hold their own keys. AI that nobody can switch off.</p>
-            <div class="lc-foot mono"><span>COMPUTE</span><span>zkML</span><span>AGENTS</span></div>
-            <span class="lc-arrow">↗</span>
-          </a>
+      <div class="hero-sections">
+        <div class="wrap hs-grid">
+          <a href="#onchain" class="hs"><span class="mono">01</span><b>Onchain</b><span class="hs-sub">Social: events, mixers, hackathons</span><i>→</i></a>
+          <a href="#consensus" class="hs"><span class="mono">02</span><b>Consensus</b><span class="hs-sub">Research: workshops, podcast, papers</span><i>→</i></a>
+          <a href="#deai" class="hs"><span class="mono">03</span><b>DeAI</b><span class="hs-sub">Blockchain × AI: compute, inference</span><i>→</i></a>
         </div>
       </div>
     </section>
 
     <!-- ============ 01 ONCHAIN ============ -->
-    <section class="section division" id="onchain">
+    <section class="section" id="onchain">
       <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="idx mono">[01]</span>
-          <span class="mono dim">SOCIAL LAYER</span>
-          <span class="mono dim push">BLOCK TIME: ONE EVENING</span>
-        </div>
+        <header class="s-head reveal">
+          <span class="s-num">01</span>
+          <div>
+            <p class="mono s-tag">Social · In person</p>
+            <h2 data-scramble>Waterloo Onchain</h2>
+          </div>
+          <p class="s-lede">Come to our events and meet people. We mint the photos and proof of attendance to everyone who was there.</p>
+        </header>
 
-        <div class="div-title">
-          <h2 class="reveal"><span data-scramble>Waterloo</span> <span class="accent-word" data-scramble>Onchain</span></h2>
-          <p class="div-lede reveal">
-            <span class="serif">Social. Transient. IRL.</span>
-            Things happen in person here: a mixer, an introduction, a 3&nbsp;a.m. debugging session at a hackathon. The event only happens once.
-            Afterwards, the photos and proof of attendance are minted to everyone who was there.
-          </p>
-        </div>
-
-        <div class="onchain-grid">
-          <div class="net-stage reveal">
+        <div class="split">
+          <div class="stage reveal">
             <canvas id="network" aria-hidden="true"></canvas>
-            <div class="stage-label mono tl"><span class="gold">●</span> LIVE PEER GRAPH</div>
-            <div class="stage-label mono br dim" id="peerCount">PEERS 00 · LINKS 00</div>
-            <div class="corner c-tl"></div><div class="corner c-tr"></div><div class="corner c-bl"></div><div class="corner c-br"></div>
+            <div class="stage-label mono"><span class="gold">●</span> Live peer graph</div>
           </div>
-
-          <ol class="offer-list">
-            <li class="offer reveal" style="--d:0">
-              <span class="o-idx mono">01</span>
-              <div><h4>Mixers</h4><p>Builders, researchers and anyone crypto-curious. Show up, meet people, go home with a proof of attendance.</p></div>
-            </li>
-            <li class="offer reveal" style="--d:1">
-              <span class="o-idx mono">02</span>
-              <div><h4>Networking</h4><p>Founders, funds and protocol teams in a room with some of the best engineers in Canada.</p></div>
-            </li>
-            <li class="offer reveal" style="--d:2">
-              <span class="o-idx mono">03</span>
-              <div><h4>Mentorship</h4><p>Get paired with alumni and operators who have shipped to mainnet. Office hours and 1:1s.</p></div>
-            </li>
-            <li class="offer reveal" style="--d:3">
-              <span class="o-idx mono">04</span>
-              <div><h4>Hackathons</h4><p>A weekend to go from nothing to a deployed contract. The winners get minted, and so does everyone else who ships.</p></div>
-            </li>
-          </ol>
-        </div>
-
-        <div class="txlog reveal">
-          <div class="txlog-head">
-            <div class="mono"><span class="gold">▍</span> EVENT LOG <span class="dim">— minted after the fact</span></div>
-            <div class="mono dim hide-sm">PHOTOS · VIDEOS · ATTENDANCE → ERC-721 / SBT</div>
-          </div>
-          <div class="txlog-table" role="table" aria-label="Event log">
-            <div class="tx-row tx-th mono" role="row">
-              <span role="columnheader">TX HASH</span><span role="columnheader">EVENT</span><span role="columnheader" class="hide-sm">TYPE</span><span role="columnheader" class="hide-sm">MINTS</span><span role="columnheader">STATUS</span>
-            </div>
-            <div class="tx-row mono" role="row"><span class="tx-hash" data-hash></span><span>Genesis Mixer</span><span class="hide-sm dim">MIXER</span><span class="hide-sm">PHOTO · POAP</span><span class="st st-pend">SCHEDULED</span></div>
-            <div class="tx-row mono" role="row"><span class="tx-hash" data-hash></span><span>Coffee &amp; Consensus</span><span class="hide-sm dim">NETWORKING</span><span class="hide-sm">POAP</span><span class="st st-pend">SCHEDULED</span></div>
-            <div class="tx-row mono" role="row"><span class="tx-hash" data-hash></span><span>Validators &amp; Founders Night</span><span class="hide-sm dim">NETWORKING</span><span class="hide-sm">PHOTO · VIDEO</span><span class="st st-pend">SCHEDULED</span></div>
-            <div class="tx-row mono" role="row"><span class="tx-hash" data-hash></span><span>Office Hours: Mainnet Operators</span><span class="hide-sm dim">MENTORSHIP</span><span class="hide-sm">SBT</span><span class="st st-draft">DRAFT</span></div>
-            <div class="tx-row mono" role="row"><span class="tx-hash" data-hash></span><span>Waterloo Onchain Hackathon</span><span class="hide-sm dim">HACKATHON</span><span class="hide-sm">PHOTO · VIDEO · SBT</span><span class="st st-draft">DRAFT</span></div>
-          </div>
+          <ul class="items two">
+            <li class="reveal" style="--d:0"><span class="mono">A</span><h3>Mixers</h3><p>Meet builders, researchers and anyone who's curious about crypto.</p></li>
+            <li class="reveal" style="--d:1"><span class="mono">B</span><h3>Networking</h3><p>Founders, funds and protocol teams, all in one room.</p></li>
+            <li class="reveal" style="--d:2"><span class="mono">C</span><h3>Mentorship</h3><p>1:1s with alumni who have shipped to mainnet.</p></li>
+            <li class="reveal" style="--d:3"><span class="mono">D</span><h3>Hackathons</h3><p>One weekend to go from an idea to a deployed contract.</p></li>
+          </ul>
         </div>
       </div>
     </section>
 
     <!-- ============ 02 CONSENSUS ============ -->
-    <section class="section division" id="consensus">
+    <section class="section" id="consensus">
       <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="idx mono">[02]</span>
-          <span class="mono dim">RESEARCH LAYER</span>
-          <span class="mono dim push">BLOCK TIME: FOREVER</span>
-        </div>
-
-        <div class="div-title">
-          <h2 class="reveal"><span data-scramble>Waterloo</span> <span class="accent-word" data-scramble>Consensus</span></h2>
-          <p class="div-lede reveal">
-            <span class="serif">Research. Academic. Built to outlast us.</span>
-            Workshops, recorded talks, a podcast and published papers, all content-addressed and signed by their authors.
-            Members graduate, but their work stays on the chain.
-          </p>
-        </div>
-
-        <div class="consensus-grid">
-          <ol class="offer-list">
-            <li class="offer reveal" style="--d:0">
-              <span class="o-idx mono">01</span>
-              <div><h4>Workshops</h4><p>From elliptic curves to rollup design. Each session is recorded, versioned and published under an open license.</p></div>
-            </li>
-            <li class="offer reveal" style="--d:1">
-              <span class="o-idx mono">02</span>
-              <div>
-                <h4>Podcast <span class="tag mono">EP.00 SOON</span></h4>
-                <p>Long-form conversations with researchers, founders and alumni. Every episode is pinned to IPFS.</p>
-                <div class="wave" aria-hidden="true"></div>
-              </div>
-            </li>
-            <li class="offer reveal" style="--d:2">
-              <span class="o-idx mono">03</span>
-              <div><h4>Published Papers</h4><p>Student research, reviewed by peers. Authorship is soulbound to each author's ENS, so credit can't be taken away.</p></div>
-            </li>
-            <li class="offer reveal" style="--d:3">
-              <span class="o-idx mono">04</span>
-              <div><h4>Hall of Fame</h4><p>Every past exec gets a card, minted as an NFT and held in their wallet for good.</p></div>
-            </li>
-          </ol>
-
-          <div class="merkle-stage reveal">
-            <svg id="merkle" viewBox="0 0 600 380" aria-hidden="true"></svg>
-            <div class="stage-label mono tl"><span class="gold">●</span> KNOWLEDGE ROOT</div>
-            <div class="stage-label mono br dim">EVERY WORK A LEAF</div>
-            <div class="corner c-tl"></div><div class="corner c-tr"></div><div class="corner c-bl"></div><div class="corner c-br"></div>
+        <header class="s-head reveal">
+          <span class="s-num">02</span>
+          <div>
+            <p class="mono s-tag">Research · Permanent</p>
+            <h2 data-scramble>Waterloo Consensus</h2>
           </div>
-        </div>
+          <p class="s-lede">Research that lasts. We publish workshops, podcast episodes and papers, and each one is signed by its authors.</p>
+        </header>
 
-        <!-- Papers -->
-        <div class="papers reveal">
-          <div class="sub-head">
-            <h3 class="mono"><span class="gold">▍</span> PUBLICATIONS</h3>
-            <span class="mono dim">AUTHORS SOULBOUND · ERC-5192</span>
-          </div>
-          <a class="paper" href="#consensus">
-            <span class="p-id mono">WC-2026-001</span>
-            <span class="p-title">Sequencer Economics: MEV, Ordering Fairness and the Rollup Endgame</span>
-            <span class="p-auth mono dim">research.waterloocrypto.eth +2</span>
-            <span class="p-st mono">FORTHCOMING</span>
-          </a>
-          <a class="paper" href="#consensus">
-            <span class="p-id mono">WC-2026-002</span>
-            <span class="p-title">Proof of Inference: A Survey of zkML and Optimistic Verification</span>
-            <span class="p-auth mono dim">deai.waterloocrypto.eth +1</span>
-            <span class="p-st mono">FORTHCOMING</span>
-          </a>
-          <a class="paper" href="#consensus">
-            <span class="p-id mono">WC-2026-003</span>
-            <span class="p-title">BFT for Undergraduates: Consensus Under Partial Synchrony, From First Principles</span>
-            <span class="p-auth mono dim">president.waterloocrypto.eth</span>
-            <span class="p-st mono">IN REVIEW</span>
-          </a>
-        </div>
+        <ul class="items four">
+          <li class="reveal" style="--d:0"><span class="mono">A</span><h3>Workshops</h3><p>From elliptic curves to rollups, recorded and openly licensed.</p></li>
+          <li class="reveal" style="--d:1"><span class="mono">B</span><h3>Podcast</h3><p>Long-form conversations with researchers and founders.</p></li>
+          <li class="reveal" style="--d:2"><span class="mono">C</span><h3>Papers</h3><p>Student research, with authorship soulbound to each author's ENS.</p></li>
+          <li class="reveal" style="--d:3"><span class="mono">D</span><h3>Hall of Fame</h3><p>Every past exec gets a card, minted as an NFT.</p></li>
+        </ul>
 
-        <!-- Hall of fame -->
         <div class="hof">
           <div class="sub-head reveal">
-            <h3 class="mono"><span class="gold">▍</span> HALL OF FAME</h3>
-            <span class="mono dim">PAST EXEC CARDS · ONE OF ONE · BOUND TO ENS</span>
+            <h3 class="mono"><span class="gold">▍</span> Hall of Fame</h3>
+            <span class="mono dim">Placeholder cards. The genesis class mints at launch.</span>
           </div>
           <div class="cards" id="cards"></div>
-          <p class="fine mono dim reveal">These are placeholder cards. The genesis class mints at launch.</p>
         </div>
       </div>
     </section>
 
     <!-- ============ 03 DEAI ============ -->
-    <section class="section division" id="deai">
+    <section class="section" id="deai">
       <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="idx mono">[03]</span>
-          <span class="mono dim">INTELLIGENCE LAYER</span>
-          <span class="mono dim push">BLOCK TIME: ONE FORWARD PASS</span>
-        </div>
-
-        <div class="div-title">
-          <h2 class="reveal"><span data-scramble>Waterloo</span> <span class="accent-word" data-scramble>DeAI</span></h2>
-          <p class="div-lede reveal">
-            <span class="serif">Blockchain × AI. Intelligence without a landlord.</span>
-            We research and build decentralized AI: permissionless GPU markets, inference you can verify with cryptographic proofs,
-            and autonomous agents that have their own wallets and ENS names.
-          </p>
-        </div>
+        <header class="s-head reveal">
+          <span class="s-num">03</span>
+          <div>
+            <p class="mono s-tag">Blockchain × AI</p>
+            <h2 data-scramble>Waterloo DeAI</h2>
+          </div>
+          <p class="s-lede">AI that no single company controls. We study GPU networks, provable inference and agents that have their own wallets.</p>
+        </header>
       </div>
 
-      <!-- GPU STAGE -->
       <div class="gpu-stage reveal" id="gpuStage">
         <div class="gpu-floor" aria-hidden="true"></div>
         <svg class="gpu-streams" id="gpuStreams" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
 
         <div class="gpu-wrap" id="gpuWrap">
           <div class="gpu-glow" aria-hidden="true"></div>
-          <svg class="gpu" id="gpu" viewBox="0 0 900 400" role="img" aria-label="Animated GPU with spinning fans processing inference jobs">
+          <svg class="gpu" id="gpu" viewBox="0 0 900 400" role="img" aria-label="Animated GPU with spinning fans">
             <defs>
               <linearGradient id="gShroud" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0" stop-color="#1c1c1c"/><stop offset=".5" stop-color="#0d0d0d"/><stop offset="1" stop-color="#070707"/>
@@ -372,67 +184,43 @@
               <filter id="fGlow" x="-50%" y="-50%" width="200%" height="200%">
                 <feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
-              <pattern id="pFins" width="6" height="10" patternUnits="userSpaceOnUse">
-                <rect width="2" height="10" fill="#3a3a3a"/>
-              </pattern>
-              <pattern id="pVent" width="10" height="6" patternUnits="userSpaceOnUse">
-                <rect width="6" height="2" rx="1" fill="#000"/>
-              </pattern>
+              <pattern id="pFins" width="6" height="10" patternUnits="userSpaceOnUse"><rect width="2" height="10" fill="#3a3a3a"/></pattern>
+              <pattern id="pVent" width="10" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="2" rx="1" fill="#000"/></pattern>
               <clipPath id="cShroud"><path d="M70 52H818l34 30v196l-26 26H70Z"/></clipPath>
             </defs>
 
-            <!-- power cables -->
             <g class="cables" fill="none">
-              <path id="cab1" d="M742 34 C742 -10, 800 -20, 900 -40" stroke="#1d1d1d" stroke-width="7"/>
-              <path id="cab2" d="M762 34 C762 0, 820 -8, 910 -18" stroke="#1d1d1d" stroke-width="7"/>
+              <path d="M742 34 C742 -10, 800 -20, 900 -40" stroke="#1d1d1d" stroke-width="7"/>
+              <path d="M762 34 C762 0, 820 -8, 910 -18" stroke="#1d1d1d" stroke-width="7"/>
               <path d="M742 34 C742 -10, 800 -20, 900 -40" class="cable-flow"/>
               <path d="M762 34 C762 0, 820 -8, 910 -18" class="cable-flow" style="animation-delay:-.7s"/>
             </g>
-
-            <!-- heatsink fins top -->
             <rect x="96" y="40" width="700" height="14" fill="url(#pFins)" opacity=".9"/>
             <rect x="96" y="40" width="700" height="1" fill="#444"/>
-
-            <!-- power connector -->
             <rect x="728" y="28" width="48" height="16" rx="2" fill="#0c0c0c" stroke="#444"/>
             <g fill="#F2C230" opacity=".8">
               <rect x="733" y="32" width="4" height="3"/><rect x="741" y="32" width="4" height="3"/><rect x="749" y="32" width="4" height="3"/><rect x="757" y="32" width="4" height="3"/><rect x="765" y="32" width="4" height="3"/>
               <rect x="733" y="37" width="4" height="3"/><rect x="741" y="37" width="4" height="3"/><rect x="749" y="37" width="4" height="3"/><rect x="757" y="37" width="4" height="3"/><rect x="765" y="37" width="4" height="3"/>
             </g>
-
-            <!-- IO bracket -->
             <path d="M28 30h34v308H28z" fill="#131313" stroke="#3b3b3b"/>
             <path d="M22 30h46v10H22z" fill="#1a1a1a" stroke="#3b3b3b"/>
             <rect x="36" y="56" width="18" height="160" fill="url(#pVent)" opacity=".9"/>
             <g fill="#050505" stroke="#555">
               <rect x="34" y="232" width="22" height="12" rx="2"/><rect x="34" y="252" width="22" height="12" rx="2"/><rect x="34" y="272" width="22" height="12" rx="2"/><rect x="34" y="292" width="22" height="14" rx="3"/>
             </g>
-
-            <!-- PCB -->
             <rect x="62" y="296" width="800" height="16" fill="#0a0a0a" stroke="#2a2a2a"/>
             <path d="M90 304h120M230 304h40l8-5h60M600 304h100l6 4h80" stroke="#F2C230" stroke-opacity=".35" stroke-width="1" fill="none"/>
-
-            <!-- PCIe gold fingers -->
             <g id="fingers"></g>
-
-            <!-- shroud -->
             <path d="M70 52H818l34 30v196l-26 26H70Z" fill="url(#gShroud)" stroke="#3a3a3a" stroke-width="1.2"/>
             <g clip-path="url(#cShroud)">
               <path d="M70 52H818" stroke="url(#gEdge)" stroke-width="2"/>
               <path d="M560 304 640 52M590 304 670 52" stroke="#fff" stroke-opacity=".03" stroke-width="30"/>
             </g>
-            <!-- rgb strip -->
             <rect x="120" y="60" width="660" height="3" rx="1.5" fill="url(#gRgb)" filter="url(#fGlow)"/>
-            <!-- chamfer accents -->
             <path d="M818 52l34 30" stroke="#F2C230" stroke-width="1.5" opacity=".8"/>
             <path d="M852 278l-26 26" stroke="#F2C230" stroke-width="1.5" opacity=".8"/>
-            <!-- rear fins -->
             <rect x="852" y="96" width="14" height="170" fill="url(#pFins)" opacity=".7"/>
-
-            <!-- fans get injected here -->
             <g id="fans"></g>
-
-            <!-- shroud text -->
             <text x="92" y="290" class="gpu-text">WATERLOO DeAI · COMPUTE UNIT 01</text>
             <text x="806" y="290" class="gpu-text" text-anchor="end">TENSOR CORES · 80 GB</text>
             <g class="leds">
@@ -440,116 +228,26 @@
             </g>
           </svg>
         </div>
-
-        <!-- HUD readouts -->
-        <div class="hud hud-tl mono">
-          <div class="hud-k">GPU UTIL</div><div class="hud-v"><span id="hUtil">97</span><small>%</small></div>
-          <div class="hud-bar"><span id="hUtilBar"></span></div>
-        </div>
-        <div class="hud hud-tr mono">
-          <div class="hud-k">THROUGHPUT</div><div class="hud-v"><span id="hTok">1,284</span><small>tok/s</small></div>
-          <div class="spark" id="spark"></div>
-        </div>
-        <div class="hud hud-bl mono">
-          <div class="hud-k">VRAM</div><div class="hud-v"><span id="hVram">71.2</span><small>/ 80 GB</small></div>
-          <div class="hud-k" style="margin-top:.6rem">TEMP</div><div class="hud-v sm"><span id="hTemp">64</span><small>°C</small></div>
-        </div>
-        <div class="hud hud-br mono">
-          <div class="hud-k">PROOFS VERIFIED</div><div class="hud-v"><span id="hProofs">0</span></div>
-          <div class="hud-k" style="margin-top:.6rem">NODES</div><div class="hud-v sm"><span id="hNodes">128</span><small>online</small></div>
-        </div>
-        <div class="stage-caption mono dim">Hover or tap the card to overclock. Simulated telemetry.</div>
+        <div class="stage-caption mono dim">Hover or tap the GPU to overclock</div>
       </div>
 
       <div class="wrap">
-        <div class="tracks">
-          <div class="sub-head reveal">
-            <h3 class="mono"><span class="gold">▍</span> RESEARCH TRACKS</h3>
-            <span class="mono dim">OPEN TO ALL MEMBERS</span>
-          </div>
-          <div class="track-grid">
-            <article class="track reveal" style="--d:0"><span class="t-idx mono">T/01</span><h4>Decentralized Compute</h4><p>Markets that route GPU work to idle hardware anywhere in the world, and how you price a FLOP without a middleman.</p><span class="t-kw mono">DePIN · SCHEDULING · PRICING</span></article>
-            <article class="track reveal" style="--d:1"><span class="t-idx mono">T/02</span><h4>Verifiable Inference</h4><p>zkML and optimistic proofs that a model ran exactly as claimed, so you're trusting math instead of an API.</p><span class="t-kw mono">zkML · opML · TEEs</span></article>
-            <article class="track reveal" style="--d:2"><span class="t-idx mono">T/03</span><h4>Onchain Agents</h4><p>Autonomous agents with their own wallets, budgets and ENS names. What happens when software can own and spend money?</p><span class="t-kw mono">AGENTS · INTENTS · ACCOUNT ABSTRACTION</span></article>
-            <article class="track reveal" style="--d:3"><span class="t-idx mono">T/04</span><h4>Data Provenance</h4><p>Content-addressed datasets, plus attribution that pays the people who contributed the data, all recorded onchain.</p><span class="t-kw mono">IPFS · ATTESTATIONS · ROYALTIES</span></article>
-            <article class="track reveal" style="--d:4"><span class="t-idx mono">T/05</span><h4>Swarm Training</h4><p>Training runs coordinated across nodes that don't trust each other. Bad gradients get slashed, honest ones get paid.</p><span class="t-kw mono">FEDERATED · CRYPTOECONOMICS</span></article>
-            <article class="track reveal" style="--d:5"><span class="t-idx mono">T/06</span><h4>Model Ownership</h4><p>Tokenized weights, licenses enforced onchain, and open models governed by the people who use them.</p><span class="t-kw mono">GOVERNANCE · LICENSING</span></article>
-          </div>
-        </div>
-
-        <div class="terminal reveal">
-          <div class="term-bar mono">
-            <span class="dots"><i></i><i></i><i></i></span>
-            <span class="dim">deai-node-01 ~ tail -f jobs.log</span>
-            <span class="gold push">● STREAMING</span>
-          </div>
-          <pre class="term-body mono" id="term" aria-live="off"></pre>
-        </div>
+        <ul class="items four">
+          <li class="reveal" style="--d:0"><span class="mono">A</span><h3>Decentralized compute</h3><p>Sending GPU work to idle hardware anywhere in the world.</p></li>
+          <li class="reveal" style="--d:1"><span class="mono">B</span><h3>Verifiable inference</h3><p>zkML: proofs that a model ran exactly as claimed.</p></li>
+          <li class="reveal" style="--d:2"><span class="mono">C</span><h3>Onchain agents</h3><p>AI agents that have their own wallets and ENS names.</p></li>
+          <li class="reveal" style="--d:3"><span class="mono">D</span><h3>Data provenance</h3><p>Datasets that pay the people who contributed to them.</p></li>
+        </ul>
       </div>
     </section>
 
-    <!-- ============ 04 ONCHAIN NATIVE ============ -->
-    <section class="section native" id="native">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="idx mono">[04]</span>
-          <span class="mono dim">PROTOCOL</span>
-          <span class="mono dim push">EVERYTHING IS A TOKEN</span>
-        </div>
-
-        <div class="native-grid">
-          <div>
-            <h2 class="big-statement reveal">Web3 native,<br><span class="serif">all the way</span> <span class="dim-text">down.</span></h2>
-            <p class="native-lede reveal">
-              Photos, videos, exec baseball cards, papers, publishers and authors are all tokens. Anything that proves who did the work
-              is soulbound to that person's ENS. Your membership is an address, and a profile is just what that address holds.
-            </p>
-
-            <div class="asset-grid">
-              <div class="asset reveal" style="--d:0"><span class="a-k mono">PHOTOS</span><span class="a-v mono">ERC-721</span></div>
-              <div class="asset reveal" style="--d:1"><span class="a-k mono">VIDEOS</span><span class="a-v mono">ERC-721 · IPFS</span></div>
-              <div class="asset reveal" style="--d:2"><span class="a-k mono">EXEC CARDS</span><span class="a-v mono">ERC-721</span></div>
-              <div class="asset reveal" style="--d:3"><span class="a-k mono">PAPERS</span><span class="a-v mono gold">SOULBOUND</span></div>
-              <div class="asset reveal" style="--d:4"><span class="a-k mono">AUTHORS</span><span class="a-v mono gold">SOULBOUND</span></div>
-              <div class="asset reveal" style="--d:5"><span class="a-k mono">ATTENDANCE</span><span class="a-v mono gold">SOULBOUND</span></div>
-            </div>
-          </div>
-
-          <div class="resolver reveal">
-            <div class="term-bar mono">
-              <span class="dots"><i></i><i></i><i></i></span>
-              <span class="dim">ens resolve</span>
-              <span class="push dim">mainnet</span>
-            </div>
-            <div class="resolver-body mono">
-              <div class="rs-line"><span class="gold">&gt;</span> resolve <span id="ensName" class="ens-name"></span><span class="caret"></span></div>
-              <div class="rs-addr" id="ensAddr">&nbsp;</div>
-              <div class="rs-list" id="ensList"></div>
-            </div>
-            <div class="resolver-foot mono dim">Example output. Wallet sign-in comes in v0.2.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 05 ROADMAP ============ -->
-    <section class="section roadmap" id="roadmap">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="idx mono">[05]</span>
-          <span class="mono dim">ROADMAP</span>
-          <span class="mono dim push">WE HAVE FIVE YEARS</span>
-        </div>
-        <h2 class="big-statement reveal">Shipped in versions.<br><span class="serif">Vibe-coded</span> <span class="dim-text">block by block.</span></h2>
-
-        <div class="timeline">
-          <div class="tl-rail" aria-hidden="true"><span id="tlFill"></span></div>
-          <div class="tl-item live reveal" style="--d:0"><span class="tl-node"></span><span class="tl-v mono">v0.1</span><h4>Landing</h4><p>This page: titles, three layers and the vibe.</p><span class="tl-st mono">● LIVE</span></div>
-          <div class="tl-item reveal" style="--d:1"><span class="tl-node"></span><span class="tl-v mono">v0.2</span><h4>Sign in with Ethereum</h4><p>ENS-native membership. Your wallet address is your profile.</p><span class="tl-st mono dim">NEXT</span></div>
-          <div class="tl-item reveal" style="--d:2"><span class="tl-node"></span><span class="tl-v mono">v0.3</span><h4>Event Mints</h4><p>Photos, videos and attendance from every Onchain event, minted to the people who were there.</p><span class="tl-st mono dim">QUEUED</span></div>
-          <div class="tl-item reveal" style="--d:3"><span class="tl-node"></span><span class="tl-v mono">v0.4</span><h4>Papers Onchain</h4><p>A Consensus archive with soulbound authorship and IPFS pinning.</p><span class="tl-st mono dim">QUEUED</span></div>
-          <div class="tl-item reveal" style="--d:4"><span class="tl-node"></span><span class="tl-v mono">v0.5</span><h4>Hall of Fame</h4><p>Exec baseball cards for the genesis class, one of one.</p><span class="tl-st mono dim">QUEUED</span></div>
-          <div class="tl-item reveal" style="--d:5"><span class="tl-node"></span><span class="tl-v mono">v1.0</span><h4>Fully Onchain</h4><p>The site itself served from IPFS via an ENS contenthash. Nothing left to take down.</p><span class="tl-st mono dim">∞</span></div>
+    <!-- ============ ONCHAIN-NATIVE BAND ============ -->
+    <section class="section band">
+      <div class="wrap band-inner reveal">
+        <h2 class="band-title">Everything we make is <span class="serif gold">onchain.</span></h2>
+        <p>Photos, videos, exec cards and papers are minted as tokens. Credit is soulbound to each person's ENS, so it stays with you after you graduate.</p>
+        <div class="chips mono">
+          <span>Photos</span><span>Videos</span><span>Exec cards</span><span class="g">Papers · soulbound</span><span class="g">Authors · soulbound</span><span class="g">Attendance · soulbound</span>
         </div>
       </div>
     </section>
@@ -557,15 +255,11 @@
     <!-- ============ JOIN ============ -->
     <section class="section join" id="join">
       <canvas id="joinCanvas" aria-hidden="true"></canvas>
-      <div class="wrap join-inner">
-        <div class="mono dim reveal">[ GENESIS CLASS · 2026 ]</div>
-        <h2 class="join-title reveal"><span data-scramble>Claim your</span><br><span class="serif gold">block.</span></h2>
-        <p class="reveal">Join the genesis class. Come to a mixer, write a paper or run a node, and get your name onchain before anyone else does.</p>
-        <div class="hero-cta reveal" style="justify-content:center">
-          <a href="#" class="btn btn-solid" aria-disabled="true"><span>Mint membership</span><i class="arrow">→</i></a>
-          <a href="#" class="btn btn-ghost"><span>Join the Discord</span></a>
-        </div>
-        <div class="mono dim fine reveal">Membership mint opens in v0.2</div>
+      <div class="wrap join-inner reveal">
+        <div class="mono dim">Genesis class · 2026</div>
+        <h2 class="join-title">Claim your <span class="serif gold">block.</span></h2>
+        <p>Come to a mixer, write a paper or run a node.</p>
+        <span class="btn btn-solid is-soon"><span>Discord: link coming soon</span></span>
       </div>
     </section>
   </main>
@@ -573,33 +267,30 @@
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="wrap">
-      <div class="foot-grid">
-        <div class="foot-brand">
+      <div class="foot-row">
+        <a href="#top" class="brand" aria-label="Back to top">
           <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
-            <path d="M16 2.2 28 9.1v13.8L16 29.8 4 22.9V9.1Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M9.2 11.2 12.6 21 16 14.2 19.4 21l3.4-9.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-            <circle cx="16" cy="2.2" r="1.7" fill="var(--gold)"/>
+            <defs><clipPath id="footLinkClip"><circle cx="16" cy="12" r="4.2"/></clipPath></defs>
+        <g transform="rotate(-45 16 16)" fill="none" stroke-width="2.2">
+          <rect x="2" y="11" width="16" height="10" rx="5" stroke="currentColor"/>
+          <rect x="14" y="11" width="16" height="10" rx="5" stroke="#000" stroke-width="5"/>
+          <rect x="14" y="11" width="16" height="10" rx="5" stroke="#f2c230"/>
+          <g clip-path="url(#footLinkClip)">
+            <rect x="2" y="11" width="16" height="10" rx="5" stroke="#000" stroke-width="5"/>
+            <rect x="2" y="11" width="16" height="10" rx="5" stroke="currentColor"/>
+          </g>
+        </g>
           </svg>
-          <p class="mono dim">The cryptographic society<br>of the University of Waterloo.</p>
-        </div>
-        <div class="foot-col">
-          <h5 class="mono">LAYERS</h5>
-          <a href="#onchain">Waterloo Onchain</a><a href="#consensus">Waterloo Consensus</a><a href="#deai">Waterloo DeAI</a>
-        </div>
-        <div class="foot-col">
-          <h5 class="mono">PROTOCOL</h5>
-          <a href="#native">Soulbound to ENS</a><a href="#roadmap">Roadmap</a><a href="#consensus">Hall of Fame</a>
-        </div>
-        <div class="foot-col">
-          <h5 class="mono">CONNECT</h5>
-          <a href="#">X / Twitter</a><a href="#">Discord</a><a href="#">Farcaster</a><a href="#">GitHub</a>
-        </div>
+          <span class="brand-word">Waterloo <b>Crypto</b></span>
+        </a>
+        <nav class="foot-links">
+          <a href="#onchain">01 Onchain</a><a href="#consensus">02 Consensus</a><a href="#deai">03 DeAI</a>
+        </nav>
       </div>
       <div class="foot-word" aria-hidden="true">WATERLOO CRYPTO</div>
       <div class="foot-base mono dim">
         <span>© <span id="yr">2026</span> Waterloo Crypto</span>
-        <span class="hide-sm">43.4723° N · 80.5449° W</span>
-        <span>v0.1 · <span class="gold">●</span> block <span id="footBlock">——</span></span>
+        <span>v0.2</span>
       </div>
     </div>
   </footer>
