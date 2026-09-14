@@ -98,9 +98,9 @@ h1, h2, h3, h4, h5, p { margin: 0; }
 }
 .nav.scrolled { background: rgba(0, 0, 0, 0.62); backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); border-bottom-color: var(--line); }
 .brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-.logo { width: 30px; height: 30px; color: var(--fg); }
-.brand:hover .logo { animation: logoSpin 1.2s var(--ease); }
-@keyframes logoSpin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+.logo { width: 34px; height: 34px; color: var(--fg); }
+.logo-chain { display: block; object-fit: cover; border-radius: 4px; background: #000; }
+.brand:hover .logo-chain { filter: brightness(1.12); }
 .brand-word { font-weight: 500; font-size: 15px; letter-spacing: -0.01em; }
 .brand-word b { font-weight: 500; color: var(--fg-3); margin-left: 4px; }
 

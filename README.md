@@ -1,16 +1,26 @@
-# Waterloo Crypto
+# Waterloo Crypto — Black v0.1
 
-The cryptographic society of the University of Waterloo.
+This branch contains the original black Waterloo Crypto website.
 
-- **Waterloo Onchain**: social. Mixers, networking, mentorship, hackathons.
-- **Waterloo Consensus**: research. Workshops, podcast, papers, hall of fame.
-- **Waterloo DeAI**: blockchain × AI. Decentralized compute, verifiable inference, onchain agents.
+## Website versions
 
-## v0.1
+| Website | GitHub branch | Live deployment |
+| --- | --- | --- |
+| White site | [`main`](../../tree/main) | [waterloo-crypto.vercel.app](https://waterloo-crypto.vercel.app/) |
+| Black site | [`black-v01`](../../tree/black-v01) | [waterloo-crypto-v01.vercel.app](https://waterloo-crypto-v01.vercel.app/) |
 
-Static landing page with no build step and no dependencies: `index.html`, `styles.css`, `main.js`.
+Open black-site pull requests against `black-v01`. Open white-site pull requests against `main`.
 
-Run locally:
+## Main files
+
+- `index.html` — homepage structure and content
+- `styles.css` — page styling
+- `main.js` — interactions
+- `logo-chain-black.png` — black-background chain logo
+
+## Run locally
+
+This is a static site with no build step or dependencies.
 
 ```bash
 python -m http.server 5173
